@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="twofactorauth">
+            <group id="general">
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Status</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="force_providers">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="webapi_notification_url">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="google">
+                <depends>
+                    <field id="twofactorauth/general/enabled">1</field>
+                </depends>
+            </group>
+            <group id="duo">
+                <depends>
+                    <field id="twofactorauth/general/enabled">1</field>
+                </depends>
+            </group>
+            <group id="authy">
+                <depends>
+                    <field id="twofactorauth/general/enabled">1</field>
+                </depends>
+            </group>
+            <group id="u2fkey">
+                <depends>
+                    <field id="twofactorauth/general/enabled">1</field>
+                </depends>
+            </group>
+        </section>
+    </system>
+</config>

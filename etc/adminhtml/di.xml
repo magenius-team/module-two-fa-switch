@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\TwoFactorAuth\Api\TfaSessionInterface">
+        <plugin name="forceGrantAccessByConfig" type="Magenius\TwoFaSwitch\Plugin\TwoFactorAuth\Model\ForceGrantAccessByConfig" sortOrder="10"/>
+    </type>
+    <type name="Magento\Backend\Block\System\Account\Edit\Form">
+        <plugin name="addTwoFactorStatusField" type="Magenius\TwoFaSwitch\Plugin\Backend\Block\SystemAccountEditForm\AddTwoFactorStatusField" sortOrder="10"/>
+    </type>
+    <type name="\Magento\User\Model\User">
+        <plugin name="modifyHasChangesFlag" type="Magenius\TwoFaSwitch\Plugin\User\Model\ModifyHasChangesFlag" sortOrder="10"/>
+    </type>
+</config>

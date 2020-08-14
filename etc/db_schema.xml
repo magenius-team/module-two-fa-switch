@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="admin_user" resource="default" engine="innodb" comment="Admin User Table">
+        <column name="two_fa_enabled" xsi:type="smallint" unsigned="true" nullable="false" identity="false" default="1" comment="Is Enabled Two Factor Authentication For User"/>
+    </table>
+</schema>

@@ -1,0 +1,7 @@
+{
+    "admin_user": {
+        "column": {
+            "two_fa_enabled": true
+        }
+    }
+}

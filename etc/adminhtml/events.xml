@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="admin_user_save_before">
+        <observer name="assign_two_factor_status" instance="Magenius\TwoFaSwitch\Observer\AssignTwoFactorStatus"/>
+    </event>
+</config>
