@@ -10,7 +10,7 @@ class ConfigDataProvider
     /**
      * @var ScopeConfigInterface
      */
-    private ScopeConfigInterface $scopeConfig;
+    private $scopeConfig;
 
     /**
      * ConfigDataProvider constructor.

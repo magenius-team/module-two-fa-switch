@@ -6,7 +6,7 @@
     <type name="Magento\Backend\Block\System\Account\Edit\Form">
         <plugin name="addTwoFactorStatusField" type="Magenius\TwoFaSwitch\Plugin\Backend\Block\SystemAccountEditForm\AddTwoFactorStatusField" sortOrder="10"/>
     </type>
-    <type name="\Magento\User\Model\User">
-        <plugin name="modifyHasChangesFlag" type="Magenius\TwoFaSwitch\Plugin\User\Model\ModifyHasChangesFlag" sortOrder="10"/>
+    <type name="Magento\Backend\Controller\Adminhtml\System\Account\Save">
+        <plugin name="changeTwoFactorStatusFlag" type="Magenius\TwoFaSwitch\Plugin\User\Controller\AdminhtmlSystemAccountSaveAfter" sortOrder="10"/>
     </type>
 </config>

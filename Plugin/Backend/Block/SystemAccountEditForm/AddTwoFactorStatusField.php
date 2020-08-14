@@ -4,16 +4,16 @@ declare(strict_types=1);
 namespace Magenius\TwoFaSwitch\Plugin\Backend\Block\SystemAccountEditForm;
 
 use Magento\Backend\Block\System\Account\Edit\Form as EditForm;
-use Magento\Backend\Model\Auth\Session;
+use Magento\Backend\Model\Auth;
 use Magento\Config\Model\Config\Source\Enabledisable;
 use Magento\Framework\Data\Form;
 
 class AddTwoFactorStatusField
 {
     /**
-     * @var Session
+     * @var Auth
      */
-    private $authSession;
+    private $auth;
 
     /**
      * @var Enabledisable
@@ -22,14 +22,14 @@ class AddTwoFactorStatusField
 
     /**
      * AddTwoFactorStatusField constructor.
-     * @param Session $authSession
+     * @param Auth $auth
      * @param Enabledisable $optionValues
      */
     public function __construct(
-        Session $authSession,
+        Auth $auth,
         Enabledisable $optionValues
     ) {
-        $this->authSession = $authSession;
+        $this->auth = $auth;
         $this->optionValues = $optionValues;
     }
 
@@ -57,7 +57,7 @@ class AddTwoFactorStatusField
                 ]
             );
             $form->addValues([
-                'two_fa_enabled' => $this->authSession->getUser()->getData('two_fa_enabled')
+                'two_fa_enabled' => $this->auth->getUser()->getData('two_fa_enabled')
             ]);
         }
     }

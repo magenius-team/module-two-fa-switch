@@ -3,7 +3,7 @@
     <default>
         <twofactorauth>
             <general>
-                <enabled>0</enabled>
+                <enabled>1</enabled>
             </general>
         </twofactorauth>
     </default>

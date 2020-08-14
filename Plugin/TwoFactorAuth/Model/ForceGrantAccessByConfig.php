@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Magenius\TwoFaSwitch\Plugin\TwoFactorAuth\Model;
 
 use Magenius\TwoFaSwitch\Model\ConfigDataProvider;
-use Magento\Backend\Model\Auth\Session;
+use Magento\Backend\Model\Auth;
 use Magento\TwoFactorAuth\Api\TfaSessionInterface;
 
 class ForceGrantAccessByConfig
@@ -15,22 +15,22 @@ class ForceGrantAccessByConfig
     private $configDataProvider;
 
     /**
-     * @var Session
+     * @var Auth
      */
-    private Session $authSession;
+    private $auth;
 
     /**
      * DisableTwoFactorAuthenticationBasedOnConfig constructor.
      *
-     * @param Session $authSession
+     * @param Auth $auth
      * @param ConfigDataProvider $configDataProvider
      */
     public function __construct(
-        Session $authSession,
+        Auth $auth,
         ConfigDataProvider $configDataProvider
     ) {
         $this->configDataProvider = $configDataProvider;
-        $this->authSession = $authSession;
+        $this->auth = $auth;
     }
 
     /**
@@ -50,7 +50,7 @@ class ForceGrantAccessByConfig
             return true;
         }
 
-        if (null !== $user = $this->authSession->getUser()) {
+        if (null !== $user = $this->auth->getUser()) {
             if (!$user->getData('two_fa_enabled')) {
                 return true;
             }
