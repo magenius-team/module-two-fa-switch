@@ -1,6 +1,6 @@
 {
     "name": "magenius/module-two-fa-switch",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Magenius 2FA Switch Module",
     "type": "magento2-module",
     "require": {
